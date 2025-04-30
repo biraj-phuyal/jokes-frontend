@@ -1,4 +1,37 @@
 button{
-  font-family: 'Courier New', Courier, monospace;
+  font-family: sans-serif;
+  color: blue;
+  font-size: 25px;
+  padding: 5px 10px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.tab-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.tab-list {
+  border-radius: 10px;
+  padding: 10px;
+  background-color: darkslategray;
+  display: flex;
+  gap: 10px;
+}
+
+.tab-content {
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: darkslategray;
+}
+
+Joke {
   color: black;
+  font-size: 20px;
+  padding: 10px;
+  background-color: darkslategray;
+  border-radius: 10px;
 }
