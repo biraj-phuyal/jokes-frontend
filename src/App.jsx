@@ -7,8 +7,9 @@ const App = () => {
     <div className="tab-container">
       <div className="tab-list">
         <button onClick={() => setTab("add")}> Add </button>
-        <button onClick={() => setTab("randomJoke")}> Random Joke</button>
-        <button onClick={() => setTab("allJokes")}>All Jokes</button>
+        <button onClick={() => setTab("randomJoke")}>Random</button>
+        <button onClick={() => setTab("allJokes")}>List</button>
+        <button onClick={() => setTab("allJokes")}>Delete</button>
       </div>
       <div className="tab-content">
         <TabContent tab={tab} />
@@ -17,12 +18,16 @@ const App = () => {
   );
 };
 
+/* TAB IS HERE */
+
 const TabContent = ({ tab }) => {
   if (tab == "randomJoke") return <RandomJoke />;
   else if (tab == "add") return <AddJoke />;
   else if (tab == "allJokes") return <AllJokes />;
   else return "";
 };
+
+/* ALL JOKES IS HERE */
 
 const AllJokes = () => {
   const [all, setAll] = useState();
@@ -34,7 +39,7 @@ const AllJokes = () => {
   };
   return (
     <div>
-      <button onClick={handleAllJokes}>Pagman</button>
+      <button onClick={handleAllJokes}> Jokes </button>
       {all ? (
         all.map((joke) => (
           <div>
@@ -42,15 +47,63 @@ const AllJokes = () => {
           </div>
         ))
       ) : (
-        <div> No jokes </div>
+        <div className="noJoke"></div>
       )}
     </div>
   );
 };
 
+/* ADDING JOKE IS HERE */
+
 const AddJoke = () => {
-  return "add joke";
+  const [topText, setTopText] = useState("");
+  const [bottomText, setBottomText] = useState("");
+  const [joke, setAdd] = useState();
+
+  const handleAddJoke = async () => {
+    const jokeData = {
+      humour: topText,
+      context: bottomText,
+    };
+
+    const response = await fetch("http://127.0.0.1:3000/jokes", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(jokeData),
+    });
+
+    const body = await response.json();
+    setAdd(body);
+  };
+
+  /* BIG DIV FOR RECIVING INPUTS IS HERE */
+  return (
+    <div>
+      <input
+        className="inputs"
+        onChange={(e) => setTopText(e.target.value)}
+        type="text"
+        required
+        placeholder="Humour"
+      />
+      <input
+        className="inputs2"
+        onChange={(e) => setBottomText(e.target.value)}
+        type="text"
+        required
+        placeholder="Context"
+      />
+      <button className="add" onClick={handleAddJoke}>
+        create
+      </button>
+      {<Joke joke={joke} />}
+    </div>
+  );
 };
+
+/* RANDOM JOKES IS HERE */
 
 const RandomJoke = () => {
   const [joke, setJoke] = useState();
@@ -63,31 +116,17 @@ const RandomJoke = () => {
 
   return (
     <div>
-      <button onClick={handleFetchJoke}>Fetch Joke</button>
-      <Joke joke={joke} />
-    </div>
-  );
-};
-
-const DeleteJoke = () => {
-  const [joke, setJoke] = useState();
-
-  const handleDeleteJoke = async () => {
-    const response = await fetch("http://127.0.0.1:3000/jokes");
-    const body = await response.json();
-    setJoke(body);
-  };
-
-  return (
-    <div>
-      <button onClick={handleFetchJoke}>Fetch Joke</button>
-      <Joke joke={joke} />
+      <button className="fetch" onClick={handleFetchJoke}>
+        find
+      </button>
+      <Joke className="joke_content" joke={joke} />
     </div>
   );
 };
 
 const Joke = ({ joke }) => {
-  if (!joke) return <div> No joke </div>;
+  if (!joke) return <div className="noJoke"> No joke yet </div>;
   return <div className="joke"> {joke.content} </div>;
 };
+
 export default App;
