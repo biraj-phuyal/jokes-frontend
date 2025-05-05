@@ -8,6 +8,14 @@ button{
   position: left;
 }
 
+body{
+  background-image: url('night.jpg');
+  background-size: 1000px;
+  background-position: center;
+  margin: 0;
+  height: 100vh;
+}
+
 .tab-container {
   display: flex;
   flex-direction: column;
