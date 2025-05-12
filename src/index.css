@@ -1,3 +1,17 @@
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: -10;
+}
+
+body{
+  background-image: url('night.jpg');
+  background-color: black;
+  background-size: 1100px;
+  background-position: center;
+  height: 90vh;
+}
+
 button{
   font-family: sans-serif;
   color: blue;
@@ -5,15 +19,6 @@ button{
   padding: 5px 10px;
   background-color: white;
   border-radius: 10px;
-  position: left;
-}
-
-body{
-  background-image: url('night.jpg');
-  background-size: 1000px;
-  background-position: center;
-  margin: 0;
-  height: 100vh;
 }
 
 .tab-container {
@@ -25,26 +30,27 @@ body{
 .tab-list {
   border-radius: 10px;
   padding: 10px;
-  background-color: darkslategray;
+  background-color: white;
   display: flex;
   gap: 10px;
 }
 
 .tab-content {
-  height: fill;
+  height: 90dvh;
   color: white;
   border-radius: 10px;
   padding: 10px;
-  background-color: darkslategray;
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
 }
 
 .joke {
   color: black;
   font-size: 30px;
   padding: 10px;
-  background-color: darkslategray;
-  border-radius: 10px;
+  background-color: white;
 }
+
 .noJoke {
   color: black;
   font-size: 30px;
@@ -63,10 +69,10 @@ body{
 }
 
 .inputs {
-  margin-right: 10px ;
+  display: flex;
+  margin-bottom: 10px;
 }
 .inputs2 {
-  position: bottom;
-  margin-left: 10px;
-  margin-right: 10px;
+  display: flex;
+  margin-bottom: 10px;
 }

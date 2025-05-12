@@ -9,7 +9,6 @@ const App = () => {
         <button onClick={() => setTab("add")}> Add </button>
         <button onClick={() => setTab("randomJoke")}>Random</button>
         <button onClick={() => setTab("allJokes")}>List</button>
-        <button onClick={() => setTab("")}>Delete</button>
       </div>
       <div className="tab-content">
         <TabContent tab={tab} />
