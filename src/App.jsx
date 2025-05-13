@@ -17,16 +17,12 @@ const App = () => {
   );
 };
 
-/* TAB IS HERE */
-
 const TabContent = ({ tab }) => {
   if (tab == "randomJoke") return <RandomJoke />;
   else if (tab == "add") return <AddJoke />;
   else if (tab == "allJokes") return <AllJokes />;
   else return "";
 };
-
-/* ALL JOKES IS HERE */
 
 const AllJokes = () => {
   const [all, setAll] = useState();
@@ -52,8 +48,6 @@ const AllJokes = () => {
   );
 };
 
-/* ADDING JOKE IS HERE */
-
 const AddJoke = () => {
   const [topText, setTopText] = useState("");
   const [bottomText, setBottomText] = useState("");
@@ -77,7 +71,6 @@ const AddJoke = () => {
     setAdd(body);
   };
 
-  /* BIG DIV FOR RECIVING INPUTS IS HERE */
   return (
     <div>
       <input
@@ -101,8 +94,6 @@ const AddJoke = () => {
     </div>
   );
 };
-
-/* RANDOM JOKES IS HERE */
 
 const RandomJoke = () => {
   const [joke, setJoke] = useState();
