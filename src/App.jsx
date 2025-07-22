@@ -1,4 +1,4 @@
-import { use, useEffect, useState } from "react";
+import { useState } from "react";
 
 const App = () => {
   const [tab, setTab] = useState("add");
@@ -28,7 +28,6 @@ const AllJokes = () => {
   const [all, setAll] = useState();
   const handleAllJokes = async () => {
     const response = await fetch("http://127.0.0.1:3000/jokes");
-    console.log(response);
     const body = await response.json();
     setAll(body);
   };
@@ -36,8 +35,8 @@ const AllJokes = () => {
     <div>
       <button onClick={handleAllJokes}> Jokes </button>
       {all ? (
-        all.map((joke) => (
-          <div>
+        all.map((joke, index) => (
+          <div key={index}>
             <Joke joke={joke} />
           </div>
         ))

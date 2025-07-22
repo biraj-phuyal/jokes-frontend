@@ -1,78 +1,168 @@
 html, body, #root {
   height: 100%;
   margin: 0;
-  padding: -10;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body{
-  background-image: url('night.jpg');
-  background-color: black;
-  background-size: 1100px;
-  background-position: center;
-  height: 90vh;
+body {
+  background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
+  background-attachment: fixed;
+  color: #e0e0e0;
+  min-height: 100vh;
 }
 
-button{
-  font-family: sans-serif;
-  color: blue;
-  font-size: 25px;
-  padding: 5px 10px;
-  background-color: white;
-  border-radius: 10px;
+button {
+  font-family: inherit;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+  border: 1px solid #4a5568;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
+  background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .tab-container {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 .tab-list {
-  border-radius: 10px;
-  padding: 10px;
-  background-color: white;
+  border-radius: 12px;
+  padding: 16px;
+  background: rgba(26, 26, 26, 0.9);
+  backdrop-filter: blur(10px);
+  border: 1px solid #333333;
   display: flex;
-  gap: 10px;
+  gap: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.tab-list button {
+  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+  border: 1px solid #4a5568;
+  font-size: 14px;
+  padding: 10px 20px;
+}
+
+.tab-list button:hover {
+  background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+  border-color: #718096;
 }
 
 .tab-content {
-  height: 90dvh;
-  color: white;
-  border-radius: 10px;
-  padding: 10px;
-  background-color: rgba(255, 255, 255, 0.5);
+  min-height: 60vh;
+  color: #e0e0e0;
+  border-radius: 12px;
+  padding: 24px;
+  background: rgba(26, 26, 26, 0.9);
   backdrop-filter: blur(10px);
+  border: 1px solid #333333;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 .joke {
-  color: black;
-  font-size: 30px;
-  padding: 10px;
-  background-color: white;
+  color: #e0e0e0;
+  font-size: 18px;
+  line-height: 1.6;
+  padding: 20px;
+  margin: 16px 0;
+  background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+  border: 1px solid #4a5568;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .noJoke {
-  color: black;
-  font-size: 30px;
-  margin-top: 10px;
-  margin-left: 8px;
+  color: #a0a0a0;
+  font-size: 16px;
+  font-style: italic;
+  margin: 20px 0;
+  text-align: center;
+  padding: 20px;
 }
 
-.fetch{
-  font-family: sans-serif;
-  font-size: 30px;
+.fetch {
+  font-family: inherit;
+  font-size: 18px;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
+  border: 1px solid #38a169;
+}
+
+.fetch:hover {
+  background: linear-gradient(135deg, #2f855a 0%, #38a169 100%);
 }
 
 .add {
-  padding: 10px;
-  margin-right: 15px;
+  font-size: 16px;
+  padding: 12px 24px;
+  margin: 16px 16px 16px 0;
+  background: linear-gradient(135deg, #3182ce 0%, #2c5282 100%);
+  border: 1px solid #3182ce;
 }
 
-.inputs {
-  display: flex;
-  margin-bottom: 10px;
+.add:hover {
+  background: linear-gradient(135deg, #2c5282 0%, #3182ce 100%);
 }
-.inputs2 {
-  display: flex;
-  margin-bottom: 10px;
+
+.inputs, .inputs2 {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  background: rgba(26, 26, 26, 0.8);
+  border: 1px solid #4a5568;
+  border-radius: 8px;
+  color: #e0e0e0;
+  font-size: 16px;
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+}
+
+.inputs:focus, .inputs2:focus {
+  outline: none;
+  border-color: #3182ce;
+  box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+}
+
+.inputs::placeholder, .inputs2::placeholder {
+  color: #a0a0a0;
+}
+
+/* Scrollbar styling for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4a5568;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #718096;
 }
