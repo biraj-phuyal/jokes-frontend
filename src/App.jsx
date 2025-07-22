@@ -48,14 +48,14 @@ const AllJokes = () => {
 };
 
 const AddJoke = () => {
-  const [topText, setTopText] = useState("");
-  const [bottomText, setBottomText] = useState("");
+  const [leftText, setLeftText] = useState("");
+  const [rightText, setRightText] = useState("");
   const [joke, setAdd] = useState();
 
   const handleAddJoke = async () => {
     const jokeData = {
-      humour: topText,
-      context: bottomText,
+      humour: leftText,
+      context: rightText,
     };
 
     const response = await fetch("http://127.0.0.1:3000/jokes", {
@@ -74,14 +74,14 @@ const AddJoke = () => {
     <div>
       <input
         className="inputs"
-        onChange={(e) => setTopText(e.target.value)}
+        onChange={(e) => setLeftText(e.target.value)}
         type="text"
         required
         placeholder="Humour"
       />
       <input
         className="inputs2"
-        onChange={(e) => setBottomText(e.target.value)}
+        onChange={(e) => setRightText(e.target.value)}
         type="text"
         required
         placeholder="Context"
